@@ -1,0 +1,2 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Coupon and Discount Validation Suite"><test name="Coupon Validation Tests"><classes><class name="edu.bitm.coupon.CouponDiscountTest"/></classes></test></suite>

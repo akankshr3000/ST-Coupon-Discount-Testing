@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coupon and Discount Validation Demo</title>
+<style>body{font-family:Arial,sans-serif;max-width:650px;margin:50px auto;padding:24px;color:#222}main{border:1px solid #ddd;border-radius:12px;padding:28px;box-shadow:0 2px 12px #ddd}label,input,button,p{font-size:16px}input{padding:10px;width:65%;margin:10px 0}button{padding:11px 16px;background:#1769d2;color:white;border:0;border-radius:5px;cursor:pointer}#message{font-weight:bold;margin-top:18px}#total{font-size:20px}</style></head>
+<body><main><h1>Shopping Cart</h1><p>Product subtotal: ₹1000.00</p><label for="coupon">Coupon code</label><br><input id="coupon" type="text" placeholder="Enter coupon code"><button id="apply" onclick="applyCoupon()">Apply Coupon</button><p id="message" aria-live="polite"></p><p id="discount">Discount: ₹0.00</p><p id="total">Final total: ₹1000.00</p></main>
+<script>
+const subtotal=1000; let applied=false;
+function applyCoupon(){const field=document.getElementById('coupon');const code=field.value.trim().toUpperCase();const message=document.getElementById('message');const discount=document.getElementById('discount');const total=document.getElementById('total');
+ if(applied){message.textContent='A coupon has already been applied.';return;}
+ if(!code){message.textContent='Please enter a coupon code.';return;}
+ if(code==='SAVE10'){const amount=subtotal*0.10;discount.textContent='Discount: ₹'+amount.toFixed(2);total.textContent='Final total: ₹'+(subtotal-amount).toFixed(2);message.textContent='Coupon applied successfully!';applied=true;}
+ else if(code==='SAVE20'){const amount=subtotal*0.20;discount.textContent='Discount: ₹'+amount.toFixed(2);total.textContent='Final total: ₹'+(subtotal-amount).toFixed(2);message.textContent='Coupon applied successfully!';applied=true;}
+ else {message.textContent='Invalid coupon code.';}}
+</script></body></html>
